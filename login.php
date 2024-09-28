@@ -93,12 +93,27 @@
                         </div>
                         <!-- /Logo -->
                         <h4 class="mb-2">Welcome to e-Mading JeWePe! 👋</h4>
-                        <p class="mb-4"></p>
+                        
+                        <!-- HERE --> 
+                        <p class="mb-4">
+                            <?php
+                            if(isset($_GET['pesan'])){
+                                if($_GET['pesan'] == 'gagal'){
+                                    echo '<i class= "text-danger">Login Gagal ! Username atau password salah !</i> ';
+                                } elseif ($_GET['pesan'] == 'empty'){
+                                    echo '<i class= "text-danger">Login Gagal ! Username atau password tidak boleh kosong !</i> ';
+                                } elseif ($_GET['pesan'] == 'notfound'){
+                                    echo '<i class= "text-danger">Login Gagal ! Username tidak ditemukan !</i> ';
+                                } elseif ($_GET['pesan'] == 'notlogin'){
+                                    echo '<i class= "text-danger">Anda Harus login terlebih dahulu!</i> ';
+                                } elseif ($_GET['pesan'] == 'logout'){
+                                    echo '<i class= "text-danger">Anda telah berhasil logout !</i> ';
+                                }
+                            }
+                            ?>
+                        </p>
 
-                        <!-- HERE -->
-                         
-
-                        <form id="formAuthentication" class="mb-3" action="admin/index.php" method="POST">
+                        <form id="formAuthentication" class="mb-3" action="check_login.php" method="POST">
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email or Username</label>
                                 <input type="text" class="form-control" id="email" name="username" placeholder="Enter your email or username" autofocus />
@@ -113,7 +128,7 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+                                <button class="btn btn-primary d-grid w-100" type="submit" name="submit">Sign in</button>
                             </div>
                         </form>
 
