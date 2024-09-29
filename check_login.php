@@ -1,7 +1,7 @@
 <?php
-//ss = password_hash('jewepe123', PASSWORD_DEFAULT);
-//var_dump($pass);
-//die;
+// $pass = password_hash('jewepe123', PASSWORD_DEFAULT);
+// var_dump($pass);
+// die;
 include('admin/config_query.php');
 $db = new database();
 //inisialisasi session

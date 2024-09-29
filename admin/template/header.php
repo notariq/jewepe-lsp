@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!isset($_SESSION['username']) and (isset($_SESSION['id_users']))){
+  header('location: ../../login.php?pesan=notlogin');
+}
+?>
+
 <!DOCTYPE html>
 
 <html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="../assets/admin/assets/" data-template="vertical-menu-template-free">
@@ -31,12 +38,16 @@
 
     <!-- Page CSS -->
 
+
     <!-- Helpers -->
     <script src="../assets/admin/assets/vendor/js/helpers.js"></script>
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../assets/admin/assets/js/config.js"></script>
+
+    <!-- Summernote CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 </head>
 
 <body>
